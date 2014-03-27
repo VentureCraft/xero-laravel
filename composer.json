@@ -5,6 +5,10 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Chris Duell",
+            "email": "chris@venturecraft.com.au"
+        },
+        {
             "name": "Paul Johnston",
             "email": "paul@softlabs.co.uk"
         }
