@@ -1,30 +1,21 @@
 # Xero Service Provider for Laravel 4
 
+Originally forked from https://github.com/Softlabs/xero-laravel
+
 A simple [Laravel 4](http://laravel.com) service provider for including the [PHP Xero API](https://github.com/XeroAPI/PHP-Xero).
 
 ## Installation
 
-The Xero Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the `Softlabs/xero-laravel` package and setting the `minimum-stability` to `dev` in your project's `composer.json`.
+The Xero Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the `Venturecraft/xero-laravel` package and setting the `minimum-stability` to `dev` in your project's `composer.json`.
 
 ```json
 {
 	"require": {
 		"laravel/framework": "4.0.*",
-		"Softlabs/xero-laravel": "1.*"
+		"venturecraft/xero-laravel": "dev-master"
 	},
 	"minimum-stability": "dev"
 }
-```
-
-Also you need to add the repository to composer.json:
-
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/Softlabs/xero-laravel"
-    }
-]
 ```
 
 ## Usage
@@ -49,7 +40,7 @@ Find the `providers` key in `app/config/app.php` and register the Xero Service P
 ```php
     'providers' => array(
         // ...
-        'Softlabs\XeroLaravel\XeroLaravelServiceProvider',
+        'Venturecraft\XeroLaravel\XeroLaravelServiceProvider',
     )
 ```
 
@@ -58,7 +49,7 @@ Find the `aliases` key in `app/config/app.php` and add in our `Xero` alias.
 ```php
     'aliases' => array(
         // ...
-        'XeroLaravel' 	  => 'Softlabs\XeroLaravel\Facades\XeroLaravel',
+        'XeroLaravel' 	  => 'Venturecraft\XeroLaravel\Facades\XeroLaravel',
     )
 ```
 
