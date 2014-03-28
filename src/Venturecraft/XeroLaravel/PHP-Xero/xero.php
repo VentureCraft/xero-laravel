@@ -230,7 +230,7 @@ class Xero {
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             }
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_CURLOPT_TIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
             $xero_response = curl_exec($ch);
             if (isset($fh)) fclose($fh);
             try {
