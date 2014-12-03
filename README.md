@@ -61,6 +61,8 @@ For more info on setting up your keys, check out the [Xero documentation](http:/
 
 ## Example Usage
 
+**Create Contact**
+
 ```
 $contact = array(
     array(
@@ -71,6 +73,14 @@ $contact = array(
 );
 
 $xero_contact = XeroLaravel::Contacts($contact);
+```
+
+**Get Contacts with WHERE clause & paging**
+
+```
+$where = "ContactNumber!=null&IsCustomer=true";
+$page  = 1;
+print_r(XeroLaravel::Contacts(false, false, $where, false, $page));
 ```
 
 ## Reference
