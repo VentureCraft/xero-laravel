@@ -81,7 +81,7 @@ class Xero {
         $name = strtolower($name);
         $valid_methods = array('accounts','contacts','contactgroups','creditnotes','currencies','invoices','organisation','payments','taxrates','trackingcategories','items','banktransactions','brandingthemes','receipts','expenseclaims');
         $valid_post_methods = array('banktransactions','contacts','contactgroups','creditnotes','expenseclaims','invoices','items','manualjournals','receipts');
-        $valid_put_methods = array('payments');
+        $valid_put_methods = array('accounts', 'payments');
         $valid_get_methods = array('accounts','banktransactions','brandingthemes','contactgroups','contacts','creditnotes','currencies','employees','expenseclaims','invoices','items','journals','manualjournals','organisation','payments','receipts','taxrates','trackingcategories','users');
         $methods_map = array(
             'accounts' => 'Accounts',
