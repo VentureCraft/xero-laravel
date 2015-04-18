@@ -79,9 +79,9 @@ class Xero {
 
     public function __call($name, $arguments) {
         $name = strtolower($name);
-        $valid_methods = array('accounts','contacts','contactgroups','creditnotes','currencies','invoices','organisation','payments','taxrates','trackingcategories','items','banktransactions','brandingthemes','receipts','expenseclaims');
+        $valid_methods = array('accounts','contacts','contactgroups','creditnotes','currencies','invoices','organisation','payments','taxrates','trackingcategories','items','banktransactions','brandingthemes','receipts','expenseclaims','options');
         $valid_post_methods = array('banktransactions','contacts','contactgroups','creditnotes','expenseclaims','invoices','items','manualjournals','receipts');
-        $valid_put_methods = array('accounts', 'payments');
+        $valid_put_methods = array('accounts', 'payments','options');
         $valid_get_methods = array('accounts','banktransactions','brandingthemes','contactgroups','contacts','creditnotes','currencies','employees','expenseclaims','invoices','items','journals','manualjournals','organisation','payments','receipts','taxrates','trackingcategories','users');
         $methods_map = array(
             'accounts' => 'Accounts',
@@ -97,6 +97,7 @@ class Xero {
             'items' => 'Items',
             'journals' => 'Journals',
             'manualjournals' => 'ManualJournals',
+            'options' => 'Options',
             'organisation' => 'Organisation',
             'payments' => 'Payments',
             'receipts' => 'Receipts',
@@ -220,6 +221,8 @@ class Xero {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $req->to_postdata() );
                 curl_setopt($ch, CURLOPT_HEADER, $req->to_header());
             } else {
+                if (is_array($arguments[1]))
+                    $method = $arguments[1][0] . '/' . $arguments[1][1] . '/' .$method;
                 $xero_url = self::ENDPOINT . $method;
                 $req  = OAuthRequest::from_consumer_and_token( $this->consumer, $this->token, 'PUT',$xero_url );
                 $req->sign_request($this->signature_method , $this->consumer, $this->token);
